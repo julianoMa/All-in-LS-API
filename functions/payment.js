@@ -1,4 +1,3 @@
-// functions/payment.js
 const axios = require('axios');
 const firebaseAdmin = require('firebase-admin');
 
@@ -14,7 +13,7 @@ exports.handler = async function(event, context) {
   if (!token) {
     return {
       statusCode: 400,
-      body: 'No token provided',
+      body: JSON.stringify({ message: 'No token provided' }),  // Send message as JSON
     };
   }
 
@@ -26,7 +25,7 @@ exports.handler = async function(event, context) {
     if (!payment || !routing_from) {
       return {
         statusCode: 400,
-        body: 'Invalid response from banking API',
+        body: JSON.stringify({ message: 'Invalid response from banking API' }), // Send message as JSON
       };
     }
 
@@ -37,7 +36,7 @@ exports.handler = async function(event, context) {
     if (querySnapshot.empty) {
       return {
         statusCode: 404,
-        body: 'No user found with this IBAN',
+        body: JSON.stringify({ message: 'No user found with this IBAN' }), // Send message as JSON
       };
     }
 
@@ -51,13 +50,13 @@ exports.handler = async function(event, context) {
 
     return {
       statusCode: 200,
-      body: `Balance updated successfully! New balance: $${newBalance}`,
+      body: JSON.stringify({ message: `Balance updated successfully! New balance: $${newBalance}` }), // Send message as JSON
     };
   } catch (error) {
     console.error('Error handling payment:', error.message);
     return {
       statusCode: 500,
-      body: 'Internal server error',
+      body: JSON.stringify({ message: 'Internal server error' }), // Send message as JSON
     };
   }
 };
