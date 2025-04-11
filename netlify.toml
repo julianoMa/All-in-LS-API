@@ -1,0 +1,9 @@
+[build]
+  functions = "functions"  # Path where your serverless functions are
+  publish = "public"       # Folder for your static assets (index.html)
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true

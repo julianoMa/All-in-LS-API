@@ -1,0 +1,30 @@
+# Node modules folder
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Environment files (e.g., for local development)
+.env
+.env.local
+.env.*.local
+
+# Build directories (if any)
+dist/
+build/
+
+# OS-specific files
+.DS_Store   # macOS
+Thumbs.db   # Windows
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Firebase Admin credentials (sensitive, don't commit these to Git!)
+all-in-ls-firebase-adminsdk-fbsvc-b2691a3db0.json
+
+# Netlify build files (optional if you're using Netlify CLI locally)
+netlify.toml
