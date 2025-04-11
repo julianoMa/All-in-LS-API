@@ -2,7 +2,7 @@ const axios = require('axios');
 const firebaseAdmin = require('firebase-admin');
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require('../all-in-ls-firebase-adminsdk-fbsvc-b2691a3db0.json');
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
 });
