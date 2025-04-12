@@ -9,12 +9,11 @@ firebaseAdmin.initializeApp({
 const db = firebaseAdmin.firestore();
 
 exports.handler = async function(event, context) {
-  const urlPath = event.path;
-  const tokenMatch = urlPath.match(/^\/api\/payment(.+)$/);
+  const fullPath = event.path; // e.g. /api/paymentPw2f4wh2jftb63hf...
+  const tokenMatch = fullPath.match(/^\/api\/payment(.+)$/);
   const token = tokenMatch ? tokenMatch[1] : null;
 
   if (!token) {
-    console.error("No token provided in path");
     return {
       statusCode: 400,
       body: 'No token provided',
