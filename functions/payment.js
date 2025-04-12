@@ -20,7 +20,7 @@ exports.handler = async function(event, context) {
 
   try {
     // 1. Fetch from banking API
-    const { data } = await axios.get(`https://banking.gta.world/gateway_token/${token}`);
+    const { data } = await axios.get(`https://fleeca.gta.world/gateway_token/${token}`);
     console.log("Response from banking API:", data);
 
     const { payment, routing_from, token_expired } = data;
