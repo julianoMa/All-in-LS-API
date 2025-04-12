@@ -72,7 +72,7 @@ exports.handler = async function(event, context) {
 
     return {
       statusCode: 200,
-      body: `Balance updated successfully! New balance: $${newBalance}`,
+      body: `Balance updated successfully! New balance: $${newBalance}. From IBAN: ${routing_from}`,
     };
   } catch (error) {
     console.error("Error during payment processing:", error.message);
