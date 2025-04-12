@@ -9,12 +9,9 @@ firebaseAdmin.initializeApp({
 const db = firebaseAdmin.firestore();
 
 exports.handler = async function(event, context) {
-  const urlPath = event.path;
-  const tokenMatch = urlPath.match(/^\/api\/payment(.+)$/);
-  const token = tokenMatch ? tokenMatch[1] : null;
-
+  const token = event.queryStringParameters.token;
   if (!token) {
-    console.error("No token provided in path");
+    console.error("No token provided");
     return {
       statusCode: 400,
       body: 'No token provided',
