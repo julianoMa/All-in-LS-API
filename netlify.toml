@@ -3,7 +3,6 @@
   publish = "public"       # Folder for your static assets (index.html)
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/api/payment:token"
+  to = "/.netlify/functions/payment"
   status = 200
-  force = true
